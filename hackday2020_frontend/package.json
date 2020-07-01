@@ -1,0 +1,29 @@
+{
+  "name": "hackday_2020",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=\"development\" nuxt",
+    "build": "NUXT_TELEMETRY_DISABLED=1 nuxt build",
+    "start": "NUXT_TELEMETRY_DISABLED=1 nuxt start",
+    "export": "nuxt export",
+    "serve": "nuxt serve",
+    "generate": "cross-env NODE_ENV=\"production\" nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.11.0",
+    "@types/agora-rtc-sdk": "^3.1.0",
+    "agora-rtc-sdk": "^3.1.1",
+    "cross-env": "^7.0.2",
+    "event-emitter": "^0.3.5",
+    "nuxt": "^2.13.0",
+    "pico-face-detect": "^1.0.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/vuetify": "^1.11.2",
+    "dotenv": "^8.2.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2"
+  }
+}

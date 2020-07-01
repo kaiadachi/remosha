@@ -1,0 +1,189 @@
+<template>
+  <div class="content mt-10">
+    <div id="app">
+      <v-app-bar
+        app
+        class="header"
+      >
+        <v-toolbar-title class="center">REMOSHA!</v-toolbar-title>
+      </v-app-bar>
+    </div>
+    <v-card id="outline" class="border">
+      <div class="inline-content">
+        <v-card-title class="headline center">
+           <span class="center">
+           STEP.1 背景にしたい写真をえらぼう！
+           </span>
+        </v-card-title>
+
+        <v-row>
+          <v-col cols="3"><div class="numberBtn numberBtn1"></div></v-col>
+          <v-col cols="3"><div class="numberBtn numberBtn2"></div></v-col>
+          <v-col cols="3"><div class="numberBtn numberBtn3"></div></v-col>
+          <v-col cols="3"><div class="numberBtn numberBtn4"></div></v-col>
+        </v-row>
+
+        <v-row>
+          <v-col
+            v-for="background in backgrounds"
+            :key="background.name"
+            class="d-flex child-flex"
+            cols="3"
+          >
+            <v-card flat tile class="d-flex border" v-on:click="pickUp(background.name)">
+              <v-img
+                :src="background.name"
+                aspect-ratio="1"
+                class="grey lighten-2"
+              >
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-img>
+            </v-card>
+
+          </v-col>
+        </v-row>
+      </div>
+    <div>
+
+      <v-card class="border">
+        <div class="inline-content">
+          <v-card-title class="headline center">
+          <span class="center">
+          STEP.1 背景にしたい写真をえらぼう！
+          </span>
+          </v-card-title>
+
+          <v-row>
+            <v-col cols="3"><div class="numberBtn numberBtn1"></div></v-col>
+            <v-col cols="3"><div class="numberBtn numberBtn2"></div></v-col>
+            <v-col cols="3"><div class="numberBtn numberBtn3"></div></v-col>
+            <v-col cols="3"><div class="numberBtn numberBtn4"></div></v-col>
+
+          </v-row>
+
+
+          <v-row>
+            <v-col
+              v-for="background in backgrounds"
+              :key="background.name"
+              class="d-flex child-flex"
+              cols="3"
+            >
+              <nuxt-link :to="toVideo(background.name)">
+              <v-card flat tile class="d-flex border">
+                <v-img
+                  :src="background.name"
+                  aspect-ratio="1"
+                  class="grey lighten-2"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
+              </v-card>
+              </nuxt-link>
+            </v-col>
+          </v-row>
+        </div>
+      </v-card>
+
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        backgrounds: [
+          {name: 'backgrounds/1-2.png'},
+          {name: 'backgrounds/1-3.png'},
+          {name: 'backgrounds/1-4.png'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/2-2.png'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/3-2.png'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/4-2.png'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/dummy.jpg'},
+          {name: 'backgrounds/dummy.jpg'},
+        ]
+      }
+    },
+    methods:{
+      toVideo(background){
+        return '/video?background=' + background.split('/')[1]
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .numberBtn{
+    width: 100%;
+    height:40px;
+  }
+  .numberBtn1{
+    background: url(../assets/img_noBtn1.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .numberBtn2{
+    background: url(../assets/img_noBtn2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .numberBtn3{
+    background: url(../assets/img_noBtn3.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .numberBtn4{
+    background: url(../assets/img_noBtn4.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .images {
+    margin: 0 auto;
+  }
+
+  .images {
+    margin: 0 auto;
+  }
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+
+    .inline-content {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+
+</style>
